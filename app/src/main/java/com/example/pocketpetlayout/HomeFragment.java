@@ -214,6 +214,7 @@ public class HomeFragment extends Fragment {
 
     //QnA 관련 함수
     public void firstQnAInit(View view){
+
         mQnaView = (RecyclerView) view.findViewById(R.id.QnaView);
         mQnAList = new ArrayList<QnAItem>();
 

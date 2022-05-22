@@ -40,6 +40,7 @@ public class FeedFragment extends Fragment {
 
         loadContent();
         gridView=(GridView) rootView.findViewById(R.id.gridview);
+
         if(newFeedItems.isEmpty()){
             gridView.setAdapter(new FeedAdapter2(rootView.getContext(), imageIDs));
         }
