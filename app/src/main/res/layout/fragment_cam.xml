@@ -7,8 +7,7 @@
     tools:context=".CamFragment"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:background="@color/white"
-    android:padding="16dp"
+
     >
     <!--상단의 툴바 입니다. -->
     <androidx.appcompat.widget.Toolbar
@@ -17,6 +16,7 @@
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
         >
 
         <!--이 내부에서 툴바를 꾸미면 됩니다. 버튼이던 뭐던~ -->
@@ -28,7 +28,7 @@
             android:textStyle="bold"
             android:textSize="35dp"
             android:text="Webcam"
-            android:drawableStart="@drawable/ic_baseline_bookmark_24"/>
+            android:drawableStart="@drawable/ic_baseline_tv_24"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -36,25 +36,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
-
+        android:layout_gravity="center"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="반려동물의 실시간 모습을 확인해봐!   "
+            android:textColor="#F1837B"
+            android:textSize="18dp"
+            android:textStyle="italic"
             >
-
         </TextView>
     </LinearLayout>
-    <Button
-        android:id="@+id/webcam"
-        android:text="확인하기"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        >
+        android:background="@color/gray"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    </Button>
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/cctv"
+            android:background="#787878"></ImageView>
+
+        <android.widget.Button
+            android:id="@+id/webcam"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/blue"
+            android:text=" 확인하기 "
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold">
+
+        </android.widget.Button>
+    </LinearLayout>
+
 
 
 </LinearLayout>

@@ -30,8 +30,9 @@
     </androidx.appcompat.widget.Toolbar>
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/pro"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/pro"
         android:layout_gravity="center"
         >
@@ -81,18 +82,17 @@
             android:ems="13"
             android:padding="8dp" />
 
-        <Button
+        <android.widget.Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
             android:layout_toRightOf="@+id/nickname"
             android:background="@drawable/blue"
             android:text="중복검사"
+            android:textColor="@color/white"
             android:textSize="18dp"
-            android:textStyle="bold"
-            android:textColor="@color/white">
-        </Button>
+            android:textStyle="bold"></android.widget.Button>
     </RelativeLayout>
 
     <TextView
@@ -178,13 +178,16 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"/>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/nextbtn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NEXT"
+        android:textColor="@color/white"
         android:textSize="18dp"
-        android:layout_gravity="center"
-        />
+        android:textStyle="bold"
+        android:background="@drawable/blue"
+        android:layout_gravity="center">
+    </android.widget.Button>
 
 </LinearLayout>

@@ -1,18 +1,30 @@
 package com.example.pocketpetlayout;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.io.InputStream;
 
 public class JoinActivity4 extends AppCompatActivity {
 
@@ -25,6 +37,9 @@ public class JoinActivity4 extends AppCompatActivity {
     String nickSt;
     String gender;
     int birthDay;
+    ImageView pro2;
+    private static final int REQUEST_CODE = 0;
+    Bitmap bitmap;
 
     public static final String TAG = " joinActivity4";
 
@@ -96,5 +111,42 @@ public class JoinActivity4 extends AppCompatActivity {
 
             }
         });
+    }
+    // 카메라 사진
+    ActivityResultLauncher<Intent> activityResultPicture = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null){
+                        Bundle extras = result.getData().getExtras();
+
+                        bitmap = (Bitmap) extras.get("data");
+                        RoundedBitmapDrawable bitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(),bitmap);
+                        bitmapDrawable.setCircular(true);
+                        pro2.setImageDrawable(bitmapDrawable);
+                    }
+                }
+            });
+
+    @Override // 갤러리
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                try {
+                    InputStream in = getContentResolver().openInputStream(data.getData());
+
+                    Bitmap img = BitmapFactory.decodeStream(in);
+                    in.close();
+
+                    pro2.setImageBitmap(img);
+                } catch (Exception e) {
+
+                }
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }

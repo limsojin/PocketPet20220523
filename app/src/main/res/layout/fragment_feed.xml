@@ -24,7 +24,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="12">
+            android:ems="13">
         </EditText>
         <android.widget.Button
             android:layout_width="wrap_content"

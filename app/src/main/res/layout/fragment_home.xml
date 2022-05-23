@@ -25,7 +25,8 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="35dp"
-            android:text="포켓펫"/>
+            android:text="포켓펫"
+             />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -150,6 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="궁금해"
+        android:textSize="20dp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/guideline7"
         app:layout_constraintLeft_toRightOf="@id/guideline8"/>
